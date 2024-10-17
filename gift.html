@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Gift</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 182, 193, 0.6);
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            width: 270px;
+            border: 2px solid #ff9eb5;
+        }
+
+        h1 {
+            color: #ff6384;
+            margin: 10px 0;
+            font-weight: 400;
+        }
+        h2 {
+          color: #ff6384;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .gift-button {
+            background-color: #ff85a1;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .gift-button:hover {
+            background-color: #ff5f7a;
+        }
+
+        /* Popup styling */
+        .popup {
+            display: none;
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background-color: white;
+            border: 2px solid #ff9eb5;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            text-align: center;
+            animation: fadeIn 0.5s forwards, floatIn 0.5s forwards;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatIn {
+            from { transform: translate(-50%, -50%) scale(0); }
+            to { transform: translate(-50%, -50%) scale(1); }
+        }
+
+        .close-popup {
+            background-color: #ff85a1;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .close-popup:hover {
+            background-color: #ff5f7a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="pic/thinking-about-question-mark.gif" alt="Gift Image" height="80" width="90" style=" border-radius: 20px; margin-bottom: 20px;">
+        <h1>Your Special Gift!</h1>
+        <p>Thank you for being such a wonderful person! Enjoy your gift.</p>
+        <button class="gift-button" onclick="sendGift()">Claim Gift</button>
+    </div>
+
+    <!-- Popup for Sending Gift -->
+    <div class="popup" id="popup">
+        <h2>Gift is on its way!</h2>
+        <p>Your thoughtful gift is being prepared and will arrive shortly.</p>
+        <button class="close-popup" onclick="closePopup()">Close</button>
+    </div>
+
+    <script>
+        function sendGift() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('active');
+            popup.style.display = 'block'; // Make it visible
+            setTimeout(() => {
+                popup.style.display = 'none'; // Hide after animation
+                popup.classList.remove('active');
+            }, 3000); // Adjust the duration as needed
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('active');
+            popup.style.display = 'none';
+        }
+    </script>
+
+</body>
+</html>

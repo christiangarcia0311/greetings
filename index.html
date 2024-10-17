@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Greeting Popup</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: rgba(255, 182, 193, 0.6); /* Light pink background */
+            font-family: 'Poppins', sans-serif;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .container {
+            display: none;
+            text-align: center;
+            background-color: #fff5f8;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+            width: 270px;
+            border: 2px solid #ff9eb5;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .container.active {
+            display: block;
+            margin: 0px 80px;
+        }
+
+        .final-container {
+            display: none;
+            text-align: center;
+            /* background-color: #fff; */
+            padding: 30px;
+            border-radius: 20px;
+            /* box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2); */
+            width: 320px;
+            margin-top: 20px; /* Space above */
+            /* border: 2px solid #ff9eb5;*/
+        }
+
+        .final-container.active {
+            display: block;
+        }
+
+        .greeting-image, .container-image {
+            
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #ff6384;
+            margin: 10px 0;
+            font-weight: 400;
+            font-size: 24px;
+        }
+
+        p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .click-button, .nav-button, .gift-button {
+            background-color: #ff85a1;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 12px 25px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+            margin: 5px;
+        }
+
+        .click-button:hover, .nav-button:hover, .gift-button:hover {
+            background-color: #ff5f7a;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- First Greeting Container -->
+    <div id="greeting" class="container active">
+        <img src="pic/envoyer-message-enveloppe.gif" alt="Birthday Image" height="80" width="80" class="greeting-image">
+        <h1>Lab² sent a message.</h1>
+        <button class="click-button" onclick="showContainer(1)">Click</button>
+    </div>
+
+    <!-- Content Containers (1-10) -->
+    <div id="container-1" class="container">
+        <img src="pic/peach-goma.gif" height="80" width="80" alt="Image 1" class="container-image">
+        <h1>Happy Birthday Lab²</h1>
+        <p>Wishing you the happiest day full of love and joy. </p>
+        <button class="nav-button" onclick="showContainer(0)">Back</button>
+        <button class="nav-button" onclick="showContainer(2)">Next</button>
+    </div>
+
+    <div id="container-2" class="container">
+        <img src="pic/hug-squeeze.gif" alt="Image 2" height="80" width="90" class="container-image">
+        <h1>To the most beautiful girl</h1>
+        <p>May your smile shine brighter than ever today!</p>
+        <button class="nav-button" onclick="showContainer(1)">Back</button>
+        <button class="nav-button" onclick="showContainer(3)">Next</button>
+    </div>
+
+    <div id="container-3" class="container">
+        <img src="pic/aaa-bbb.gif" alt="Image 3" height="80" width="90" class="container-image">
+        <h1>Another year, more reasons to love you</h1>
+        <p>I cherish every moment with you.</p>
+        <button class="nav-button" onclick="showContainer(2)">Back</button>
+        <button class="nav-button" onclick="showContainer(4)">Next</button>
+    </div>
+
+    <div id="container-4" class="container">
+        <img src="pic/bubu-bubu-dudu.gif" alt="Image 4" height="80" width="80" class="container-image">
+        <h1>To my everything</h1>
+        <p>May this year bring you endless happiness.</p>
+        <button class="nav-button" onclick="showContainer(3)">Back</button>
+        <button class="nav-button" onclick="showContainer(5)">Next</button>
+    </div>
+
+    <div id="container-5" class="container">
+        <img src="pic/hom-hold-me-tight.gif" alt="Image 5" height="80" width="80" class="container-image">
+        <h1>Enjoy your day!</h1>
+        <p>More adventures and memories with you.</p>
+        <button class="nav-button" onclick="showContainer(4)">Back</button>
+        <button class="nav-button" onclick="showContainer(6)">Next</button>
+    </div>
+
+    <div id="container-6" class="container">
+        <img src="pic/bubu-dudu-kisses.gif" alt="Image 6" height="80" width="80" class="container-image">
+        <h1>Happy Birthday, My Love!</h1>
+        <p>Know that i love you always in all ways.</p>
+        <button class="nav-button" onclick="showContainer(5)">Back</button>
+        <button class="nav-button" onclick="showContainer(7)">Next</button>
+    </div>
+
+    <div id="container-7" class="container">
+        <img src="pic/kiss-love.gif" alt="Image 7" height="90" width="80" class="container-image">
+        <h1>Wishing you a Happy, Happy Birthday!</h1>
+        <p>I hope this year brings you everything your heart desires i love you.</p>
+        <button class="nav-button" onclick="showContainer(6)">Back</button>
+        <button class="nav-button" onclick="showContainer('final')">Next</button>
+    </div>
+
+    <!-- Final Non-popup Container -->
+    <div id="final-container" class="final-container">
+        <img src="pic/fat-cat-gift-for-you.gif" alt="Final Image" height="80" width="80" class="greeting-image">
+        <h1>Here's a Special Gift for You!</h1>
+        <p>Thank you for being such an amazing person. Click the button below to get your gift!</p>
+        <button class="gift-button" onclick="window.location.href='gift.html'">Click for Gift</button>
+    </div>
+
+    <script>
+        function showContainer(index) {
+            // Hide all containers
+            var containers = document.querySelectorAll('.container, .final-container');
+            containers.forEach(function(container) {
+                container.classList.remove('active');
+            });
+
+            // Show the selected container
+            if (index === 'final') {
+                document.getElementById('final-container').classList.add('active');
+            } else {
+                var containerToShow = document.getElementById('container-' + index);
+                if (containerToShow) {
+                    containerToShow.classList.add('active');
+                } else {
+                    document.getElementById('greeting').classList.add('active');
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
